@@ -46,3 +46,34 @@ DATABASE_URL="file:./dev.db"を追記
 fields:[id] どのモデルのどの列を使うか
 references:[id] 参照先のどの列と紐づけるか
 onDelete: Cascade リレーション先が削除された場合一緒に削除される
+
+## マイグレーションとシード実行
+
+マイグレーションからシード実行と DB リセットまで
+
+```
+npx prisma migrate dev --name init
+npx prisma db seed
+npx prisma studio
+npx prisma migrate reset
+```
+
+エラーがでたとき ↓
+
+すべてのマイグレーションファイルを削除
+
+```
+rm -rf prisma/migrations
+```
+
+dev.db ファイルも削除
+
+```
+rm prisma/dev.db
+```
+
+新しいマイグレーションファイルを作成
+
+```
+npx prisma migrate dev --name init
+```
