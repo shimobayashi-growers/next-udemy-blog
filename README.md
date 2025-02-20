@@ -31,3 +31,18 @@ postgresql はコメントアウト
 DATABASE_URL="file:./dev.db"を追記
 
 /lib/prisma.ts の初期設定
+
+## prisma/schema.prisma
+
+データベース内のテーブルの列や属性を定義
+
+@id PK
+@default デフォルト値
+@unique 重複不可
+? 必須ではない
+[] 1 対 n を表す
+@upudatedAt 更新日時
+@relation リレーション
+fields:[id] どのモデルのどの列を使うか
+references:[id] 参照先のどの列と紐づけるか
+onDelete: Cascade リレーション先が削除された場合一緒に削除される
