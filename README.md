@@ -77,3 +77,20 @@ rm prisma/dev.db
 ```
 npx prisma migrate dev --name init
 ```
+
+# shadcn/ui のインストール
+
+```
+npx shadcn@^2 init
+
+default
+Neutral
+Yes
+--force
+```
+
+パーツをまとめてインストール
+
+```
+npx shadcn@^2 add navigation-menu button input label alert dropdown-menu alert-dialog
+```
