@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function PostCard({ post }: PostCardProps) {
     return (
         <Card className="hover:shadow-md transition-shadow">
-            <Link href="{`/posts/${post.id}`}">
+            <Link href={`/posts/${post.id}`}>
                 {post.topImage && (
                     <div className="relative w-full h-48">
                         <Image
