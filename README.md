@@ -94,3 +94,10 @@ Yes
 ```
 npx shadcn@^2 add navigation-menu button input label alert dropdown-menu alert-dialog
 ```
+
+# カード型の日付フォーマット
+
+```
+npm install date-fns@^4
+npx shadcn@^2 add card
+```
