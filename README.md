@@ -101,3 +101,19 @@ npx shadcn@^2 add navigation-menu button input label alert dropdown-menu alert-d
 npm install date-fns@^4
 npx shadcn@^2 add card
 ```
+
+# Auth.js の実装
+
+https://authjs.dev/
+
+学ぶのはこちらから
+
+https://nextjs.org/learn/dashboard-app/adding-authentication
+
+```
+npm install next-auth@beta
+// シークレットキー生成
+npx auth secret
+```
+
+.env.local に AUTH_SECRET が発行されるが.env に統合
