@@ -102,7 +102,7 @@ npm install date-fns@^4
 npx shadcn@^2 add card
 ```
 
-# Auth.js の実装
+# Auth.js のインストール
 
 https://authjs.dev/
 
@@ -117,3 +117,9 @@ npx auth secret
 ```
 
 .env.local に AUTH_SECRET が発行されるが.env に統合
+
+## zod インストール
+
+```
+npm install zod@^3
+```
