@@ -2,13 +2,19 @@
  
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
- 
+import { redirect } from 'next/navigation';
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData,
 ) {
   try {
-    await signIn('credentials', formData);
+    await signIn('credentials', {
+      ...Object.fromEntries(formData), 
+      redirect: false, // リダイレクトを無効にする
+    });
+
+    redirect('/dashboard'); // ログイン後はダッシュボードにリダイレクト
+
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
