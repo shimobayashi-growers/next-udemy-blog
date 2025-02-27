@@ -14,6 +14,7 @@ export default function CreatePage() {
 
     const [content, setContent] = useState("");
     const [contentLength, setContentLength] = useState(0);
+    const [preview, setPreview] = useState(false);
 
     const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const value = e.target.value;
@@ -44,7 +45,29 @@ export default function CreatePage() {
                 <div className="text-right text-sm text-gray-500 mt-1">
                     文字数： {contentLength}
                 </div>
-                <Button type="submit">投稿</Button>
+                <div>
+                    <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => setPreview(!preview)}
+                    >
+                        {preview ? "プレビューを閉じる" : "プレビューを表示"}
+                    </Button>
+                </div>
+                {preview && (
+                    <div className="p-4 border bg-gray-50 prose max-w-none">
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm]} // マークダウンのプラグイン
+                            rehypePlugins={[rehypeHighlight]} // シンタックスハイライトのプラグイン
+                            skipHtml={false} // HTMLを許可
+                            unwrapDisallowed={true} // Markdownの改行を許可
+                        >{content}
+                        </ReactMarkdown>
+                        <Button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                            投稿する
+                        </Button>
+                    </div>
+                )}
             </form>
         </div>
     )
