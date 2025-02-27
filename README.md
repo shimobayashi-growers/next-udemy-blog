@@ -169,3 +169,22 @@ textarea 自動調整
 
 tailwindCSS 公式プラグイン
 Markdown をきれいにスタイリングするクラスを提供
+
+# 画像保存処理
+
+1. ブラウザの File オブジェクト（arrayBuffer 形式）
+2. ファイルのデータ変換（保存するため）
+   File.arrayBuffer() で arrayBuffer を取得
+   Buffer.from(arrayBuffer) で Node.js の Buffer に変換
+3. Node.js 側で保存
+   writeFile でバイナリデータ（Buffer）をファイルに書き込む
+
+（解説）
+
+- arrayBuffer
+  - ブラウザや Node.js でも使えるデータ構造
+- Buffer
+  - Node.js 独自クラス
+  - fs などからデータを読み込むときに使う
+- writeFile
+  - fs の関数、ファイル保存
