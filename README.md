@@ -123,3 +123,17 @@ npx auth secret
 ```
 npm install zod@^3
 ```
+
+# CRUD
+
+データ操作の一連の方法（Create,Read,Update,Delete）
+
+| HTTP メソッド | URI               | 画面・機能 | CRUD   |
+| ------------- | ----------------- | ---------- | ------ |
+| GET           | /dashboard /posts | 一覧画面   | Read   |
+| GET           | /posts/create     | 作成画面   |        |
+| POST          | /posts            | 保存       | Create |
+| GET           | /posts/[id]       | 詳細画面   | Read   |
+| GET           | /posts/[id]/edit  | 編集画面   | Read   |
+| PUT/PATCH     | /posts/[id]       | 更新       | Update |
+| DELETE        | /posts/[id]       | 削除       | Delete |
