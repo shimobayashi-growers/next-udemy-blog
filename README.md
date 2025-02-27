@@ -137,3 +137,35 @@ npm install zod@^3
 | GET           | /posts/[id]/edit  | 編集画面   | Read   |
 | PUT/PATCH     | /posts/[id]       | 更新       | Update |
 | DELETE        | /posts/[id]       | 削除       | Delete |
+
+# Markdown 関連ライブラリインストール
+
+```
+npm install react-markdown@^9
+npm install remark-gfm@^4
+npm install rehype-highlight@^7
+npm install react-textarea-autosize@^8
+npm install @tailwindcss/typography@^0
+```
+
+### react-markdown
+
+Markdown を React コンポーネントとして表示
+
+### remark-gfm
+
+GithubFlavoredMarkdown 対応
+（Markdown の拡張機能）
+
+### rehype-highlight
+
+コードハイライト表示
+
+### react-textarea-autosize
+
+textarea 自動調整
+
+### tailwindcss/typography
+
+tailwindCSS 公式プラグイン
+Markdown をきれいにスタイリングするクラスを提供
