@@ -31,6 +31,15 @@ export default function CreatePage() {
                     <Input id="title" type="text" placeholder="タイトルを入力してください" />
                 </div>
                 <div>
+                    <Label htmlFor="topImage">画像</Label>
+                    <Input
+                        id="topImage"
+                        type="file"
+                        accept="image/*"
+                        name="topImage"
+                    />
+                </div>
+                <div>
                     <Label htmlFor="content">内容</Label>
                     <TextareaAutosize
                         id="content"
