@@ -188,3 +188,9 @@ Markdown をきれいにスタイリングするクラスを提供
   - fs などからデータを読み込むときに使う
 - writeFile
   - fs の関数、ファイル保存
+
+# 表示非表示
+
+```
+npx shadcn@^2 add radio-group
+```
