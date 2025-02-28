@@ -5,6 +5,11 @@ import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import { getOwnPost } from "@/lib/ownPost";
 import { auth } from "@/auth";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import TextareaAutosize from "react-textarea-autosize";
+import "highlight.js/styles/github-dark.css";
 
 type Params = {
     params: Promise<{ id: string }>;
@@ -61,7 +66,15 @@ export default async function ShowPage({ params }: Params) {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    {post.content}
+                    <div className="prose max-w-none">
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm]} // マークダウンのプラグイン
+                            rehypePlugins={[rehypeHighlight]} // シンタックスハイライトのプラグイン
+                            skipHtml={false} // HTMLを許可
+                            unwrapDisallowed={true} // Markdownの改行を許可
+                        >{post.content}
+                        </ReactMarkdown>
+                    </div>
                 </CardContent>
             </Card>
         </div>
