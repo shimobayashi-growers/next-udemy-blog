@@ -9,7 +9,7 @@ import "highlight.js/styles/github-dark.css";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { createPost } from "@/lib/actions/createPost";
+import { updatePost } from "@/lib/actions/updatePost";
 import Image from "next/image";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 
@@ -34,7 +34,7 @@ export default function EditPostForm({ post }: EditPostFormProps) {
     const [published, setPublished] = useState(post.published);
     const [imagePreview, setImagePreview] = useState(post.topImage);
 
-    const [state, formAction] = useActionState(createPost, {
+    const [state, formAction] = useActionState(updatePost, {
         success: false,
         errors: {},
     });
@@ -165,7 +165,7 @@ export default function EditPostForm({ post }: EditPostFormProps) {
                 <Button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">
                     投稿する
                 </Button>
-                <input type="hidden" name="Postid" value={post.id} />
+                <input type="hidden" name="postId" value={post.id} />
                 <input type="hidden" name="oldImageUrl" value={post.topImage || ""} />
             </form>
         </div>
