@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "./prisma";
 
-export async function getOwnPost(userId: string){
+export async function getOwnPosts(userId: string){
     return await prisma.post.findMany({
         where: {
             authorId: userId,

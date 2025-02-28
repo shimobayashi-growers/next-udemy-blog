@@ -1,4 +1,4 @@
-import { getOwnPost } from "@/lib/ownPost";
+import { getOwnPosts } from "@/lib/ownPost";
 import { auth } from "@/auth";
 import { Button } from "@/components/ui/button";
 import PostDropdownMenu from "@/components/post/PostDropdownMenu";
@@ -12,7 +12,7 @@ export default async function DashboardPage() {
         throw new Error("ユーザー情報がありません");
     }
 
-    const posts = await getOwnPost(userId);
+    const posts = await getOwnPosts(userId);
 
     return (
         <div className="p-4">
