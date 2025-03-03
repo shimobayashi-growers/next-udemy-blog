@@ -222,3 +222,31 @@ npx prisma db seed
 // prisma クライアント再作成
 npx prisma generate
 ```
+
+### ストレージの設定
+
+接続設定
+
+```
+npm install @supabase/supabase-js
+```
+
+Storage->CONIGURATION->Policies
+３つすべて設定
+
+- udemy_next_blog_bucket
+
+Allow access to JPG images in a public folder to anonymous users
+Allowed operation: SELECT / INSERT / UPDATE / DELETE
+
+- Other policies under storage.objects
+
+Enable read access to everyone
+Allowed operation: ALL
+
+※supabase の認証機能を使うなら他になる
+
+- Policies under storage.buckets
+
+Enable read access to everyone
+Allowed operation: ALL
