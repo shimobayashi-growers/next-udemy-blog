@@ -205,3 +205,20 @@ Next.js プロジェクトのアップロード先
 
 postgreSQL(DB)
 Storage の設定
+
+API は「Session pooler」を選択
+.env のファイルデータを更新
+
+### マイグレーション
+
+prisma/migrations フォルダに sqlite の記載が残っている場合は削除
+/next-udemy-blog/prisma/migrations
+
+```
+// マイグレーション（テーブル作成）
+npx prisma migrate dev --name init
+// シード実行（ダミーデータ）
+npx prisma db seed
+// prisma クライアント再作成
+npx prisma generate
+```
