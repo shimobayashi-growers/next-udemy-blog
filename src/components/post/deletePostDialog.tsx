@@ -9,6 +9,8 @@ import {
     AlertDialogTitle,
   } from "@/components/ui/alert-dialog"
 import { deletePost } from "@/lib/actions/deletePost";
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 type DeletePostProps = {
     postId: string;
@@ -17,6 +19,17 @@ type DeletePostProps = {
 }
 
 export default function DeletePostDialog({ postId, isOpen, onOpenChange }: DeletePostProps) {
+    const router = useRouter();
+    const [isPending, startTransition] = useTransition();
+    
+    const handleDelete = () => {
+        startTransition(async () => {
+            await deletePost(postId);
+            router.refresh();
+            onOpenChange(false);
+        });
+    };
+    
     return (
         <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
             <AlertDialogContent>
@@ -31,14 +44,14 @@ export default function DeletePostDialog({ postId, isOpen, onOpenChange }: Delet
                 <AlertDialogFooter>
                     <AlertDialogCancel>キャンセル</AlertDialogCancel>
                     <AlertDialogAction 
-                        onClick={() => { deletePost(postId);}} 
+                        onClick={handleDelete} 
                         className="bg-red-500 hover:bg-red-600"
+                        disabled={isPending}
                     >
-                        削除する
+                        {isPending ? "削除中..." : "削除する"}
                     </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialog>
-
     )
 }
