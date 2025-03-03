@@ -194,3 +194,14 @@ Markdown をきれいにスタイリングするクラスを提供
 ```
 npx shadcn@^2 add radio-group
 ```
+
+# デプロイ先
+
+## Vercel（PaaS）
+
+Next.js プロジェクトのアップロード先
+
+## Supabase（BaaS)
+
+postgreSQL(DB)
+Storage の設定
