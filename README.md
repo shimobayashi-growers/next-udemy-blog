@@ -197,10 +197,6 @@ npx shadcn@^2 add radio-group
 
 # デプロイ先
 
-## Vercel（PaaS）
-
-Next.js プロジェクトのアップロード先
-
 ## Supabase（BaaS)
 
 postgreSQL(DB)
@@ -250,3 +246,18 @@ Allowed operation: ALL
 
 Enable read access to everyone
 Allowed operation: ALL
+
+## Vercel（PaaS）
+
+Next.js プロジェクトのアップロード先
+import git repository
+
+Build Command を変更
+
+```
+npx prisma generate && npm run build
+```
+
+Environment Variables も.env から転記する
+
+Deploy して完了
