@@ -1,8 +1,13 @@
 'use client'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import Link from "next/link";
-import DeletePostDialog from "@/components/post/DeletePostDialog";
-import { useState } from "react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
+import Link from 'next/link'
+import DeletePostDialog from "@/components/post/DeletePostDialog"
+import { useState } from 'react'
 
 export default function PostDropdownMenu({postId}: {postId: string}) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
